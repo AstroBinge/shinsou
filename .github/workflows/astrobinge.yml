@@ -1,0 +1,35 @@
+name: Shinsou CI
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Releases
+        uses: andrewthetechie/gha-clone-releases@v1.7.0
+        with:
+          token: ${{ secrets.SHINSOU_TOKEN }}
+          src_repo: ${{ secrets.SHINSOU_REPO }}
+          dest_repo: astrobinge/shinsou
+          copy_assets: true
+
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Get stable.md content
+        run: |
+          curl -sL "https://raw.githubusercontent.com/${{ secrets.SHINSOU_REPO }}/main/stable.md" \
+          -H "Authorization: token ${{ secrets.SHINSOU_TOKEN }}" > stable.md
+
+      - name: Commit and Push Changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add stable.md
+          git commit -m "Update stable.md"
+          git pull origin main --rebase  # Pull changes from remote main branch
+          git push  # Push changes
