@@ -1,8 +1,6 @@
-# 1.2.5
+# 1.0.0
 
 - Fix some Big Crashes
-- Added Search by Image (thanks to @antonydp)
-- Rename Zoro to Kaido (thanks to @scrazzz)
-- Changes to FAQs & Forks List (thanks to @SunglassJerry)
-- Support for Libgen links  (thanks to @antonydp)
+- Added Search by Image
+- Support for Libgen links
 - Fixed clicking on Player Settings from Video player, closing the video
