@@ -1,4 +1,4 @@
-# 1.0.0
+# 1.0.1
 
 - Fix some Big Crashes
 - Added Search by Image
