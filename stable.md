@@ -1,6 +1,5 @@
-# 1.0.2
+# 1.0.3
 
-- Fix some Big Crashes
-- Added Search by Images
+- Added new source `AnimeOwl`
+- Fixed Search by Images
 - Support for Libgen links
-- Fixed clicking on Player Settings from Video player, closing the video
